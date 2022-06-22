@@ -39,7 +39,7 @@ publishData {
     // This would use "master" as our stable branch
     // useEldoNexusRepos()
 
-    // We publish everything of the java branch, which includes our compiled jar, sources and javadocs
+    // We publish everything of the java component, which includes our compiled jar, sources and javadocs
     publishComponent("java")
 }
 
@@ -54,7 +54,7 @@ publishing {
         maven {
             authentication {
                 credentials(PasswordCredentials::class) {
-                    // Those credentials need to be set under "Settings -> Secrets" in your repository
+                    // Those credentials need to be set under "Settings -> Secrets -> Actions" in your repository
                     username = System.getenv("NEXUS_USERNAME")
                     password = System.getenv("NEXUS_PASSWORD")
                 }
