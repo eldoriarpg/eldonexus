@@ -1,5 +1,9 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "baseBranches": ["main"],
+  "dependencyDashboard": true,
+  "labels": ["dependencies"],
+  "extends": ["config:base"],
+  "reviewers": ["RainbowDashLabs"],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 10
 }
