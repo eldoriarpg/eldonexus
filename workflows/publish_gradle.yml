@@ -1,0 +1,33 @@
+name: Publish Gradle to Nexus
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - dev*
+      - feature/*
+      - release/*
+
+jobs:
+  build:
+    environment: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.0.2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: adopt
+          java-version: 17
+      - name: Build with Gradle
+        run: ./gradlew --build-cache build
+      - name: Test with Gradle
+        run: ./gradlew test
+      - name: Publish to eldonexus
+        run: ./gradlew publishMavenPublicationToEldoNexusRepository
+        env:
+          # Those credentials need to be set under "Settings -> Secrets" in your repository
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
