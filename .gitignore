@@ -24,3 +24,5 @@ cmake-build-*/
 /config/
 /logs/
 /out/
+.env
+venv/
