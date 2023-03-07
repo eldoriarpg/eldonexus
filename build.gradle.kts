@@ -2,7 +2,7 @@ plugins {
     java
     `maven-publish`
     // make sure to add the eldo nexus as repository in your settings.gradle.kts
-    id("de.chojo.publishdata") version "1.0.9"
+    id("de.chojo.publishdata") version "1.1.0"
 }
 
 group = "de.eldoria"
@@ -34,11 +34,7 @@ java{
 
 // configure publish data
 publishData {
-    // We use the eldo nexus default repositories with "main" as our stable branch
-    useEldoNexusRepos(useMain = true)
-    // This would use "master" as our stable branch
-    // useEldoNexusRepos()
-
+    useEldoNexusRepos()
     // We publish everything of the java component, which includes our compiled jar, sources and javadocs
     publishComponent("java")
 }
