@@ -2,7 +2,7 @@ plugins {
     java
     `maven-publish`
     // make sure to add the eldo nexus as repository in your settings.gradle.kts
-    id("de.chojo.publishdata") version "1.1.0"
+    id("de.chojo.publishdata") version "1.2.1"
 }
 
 group = "de.eldoria"
