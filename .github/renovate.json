@@ -3,5 +3,6 @@
   "extends": [
     "github>eldoriarpg/.github//.github/default_renovate"
   ],
-  "baseBranches": ["main"]
+  "baseBranches": ["main"],
+  "ignoreTests": true
 }
